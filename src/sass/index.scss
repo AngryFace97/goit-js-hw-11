@@ -1,31 +1,42 @@
 @import './common';
 @import './example';
 
+
+body {
+    background: rgba(3, 77, 35, 0.26);
+}
+
 .search-form {
     background-color: rgb(3, 77, 35);
     padding: 20px;
     text-align: center;
+
+
+    &__input {
+        border-radius: 4px;
+        outline: none;
+        font-size: 10px;
+        width: 200px;
+        height: 30px;
+        border: 0px;
+        position: absolute;
+        padding-left: 10px;
+      }
+
+    &__btn {
+        height: 30px;
+        cursor: pointer;
+        border-radius: 4px;
+        outline: none;
+        border: 0px;
+      }
+
+      &__img {
+        width: 50px;
+        padding-right: 10px;
+    }
   }
-  
-  .search-form > input {
-    border-radius: 4px;
-    outline: none;
-    font-size: 10px;
-    width: 200px;
-    height: 30px;
-    border: 0px;
-    position: absolute;
-    padding-left: 10px;
-  }
-  
-  .search-form > button {
-    height: 30px;
-    cursor: pointer;
-    border-radius: 4px;
-    outline: none;
-    border: 0px;
-  }
-  
+
   .svg {
     width: 16px;
     height: 12px;
