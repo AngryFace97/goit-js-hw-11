@@ -5,7 +5,6 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 
 let lightBox = new SimpleLightbox('.gallery a');
 
-
 const searchForm = document.querySelector('#search-form');
 const searchQuery = document.querySelector('input[name="searchQuery"]');
 const gallery = document.querySelector('.gallery');
@@ -15,7 +14,6 @@ let numberOfPicture = 0;
 let currentPage = 0;
 let totalHits = 0;
 
-
 const searchPhotos = e => {
   e.preventDefault();
   gallery.innerHTML = '';
@@ -24,13 +22,11 @@ const searchPhotos = e => {
   renderSearchPhotos();
 };
 
-
 const renderSearchPhotos = async () => {
   try {
     const photos = await fetchPhoto(searchQuery.value, currentPage);
     if (photos.hits.length !== 0) {
-      renderPhotoListItems(photos.hits, gallery, currentPage);
-      
+      renderPhotoListItems(photos.hits, gallery, currentPage);      
       if (currentPage >= 1) {
         loadMoreBtn.classList.add('is-visible');
         Notify.success(`Hooray! We found ${photos.totalHits} images.`);
@@ -54,22 +50,18 @@ const renderSearchPhotos = async () => {
   }
 };
 
-
 function checkEndOfHits() {
   numberOfPicture = document.querySelectorAll('.photo-card');
 
   if (totalHits > numberOfPicture.length) {
     renderSearchPhotos();
   } else {
- 
-    Notify.info("We're sorry, but you've reached the end of search results.");
     loadMoreBtn.classList.remove('is-visible');
+    Notify.info("We're sorry, but you've reached the end of search results.");
   }
 }
 
-
-function renderPhotoListItems(hits, wrapper, page) {
- 
+function renderPhotoListItems(hits, wrapper, page) { 
   const markup = hits
     .map(
       ({
@@ -125,7 +117,6 @@ function renderPhotoListItems(hits, wrapper, page) {
     });
   }
 }
-
 
 searchForm.addEventListener('submit', searchPhotos);
 loadMoreBtn.addEventListener('click', checkEndOfHits);
